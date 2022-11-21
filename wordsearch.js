@@ -1,7 +1,7 @@
 const wordSearch = (letters, word) => { 
     if(!letters.length) return false;
     
-    const horizontalJoin = letters.map(ls => ls.join('')) //[ 'AWCFQUAL' ]
+    const horizontalJoin = letters.map(ls => ls.join('')) //[ 'AWCFQUAL', 'SEINFELD','YFCFQUAL',..]
     for (l of horizontalJoin) {
         if (l.includes(word)) return true
     }
@@ -12,13 +12,11 @@ const wordSearch = (letters, word) => {
     for (let i = 0; i < columns; i++) {
         newArr.push([]);
         for (let j = 0; j < rows; j++) {
-            newArr[i].push(letters[j][i]); //['A', 'S', 'Y', 'H']
+            newArr[i].push(letters[j][i]); //['A', 'S', 'Y', 'H',...]
         }
-    }
-    for (element of newArr) {
-        const letter = newArr.map(ls => ls.join(''));
+        const letter = newArr[i].join('');
         if (letter === word) return true;
-    } 
+    }
 
     return false;
 }
@@ -34,4 +32,5 @@ console.log(wordSearch([
     ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
     ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
     ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-], 'SEINFELD')); //output: true
+  ], 'ASYHWBUOE')); //output: true
+
