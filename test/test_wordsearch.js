@@ -16,7 +16,6 @@ describe("#wordSearch()", function() {
       ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
       ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
     ], 'FRANK')
-
     assert.isFalse(result);
   });
 
@@ -32,7 +31,21 @@ describe("#wordSearch()", function() {
       ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
       ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
     ], 'SEINFELD')
-
     assert.isTrue(result);
+  });
+  
+  it("should return false if array is empty", function() {
+    const result = wordSearch([ ], 'SEINFELD')
+    assert.isFalse(result);
+  });
+
+  it("should return false if array's rows and columns are too small", function() {
+    const result = wordSearch([
+      ['A', 'W', 'C', 'F'],
+      ['S', 'E', 'I', 'N'],
+      ['Y', 'F', 'C', 'F'],
+      ['H', 'M', 'J', 'T'],
+    ], 'SEINFELD')
+    assert.isFalse(result);
   });
 });
